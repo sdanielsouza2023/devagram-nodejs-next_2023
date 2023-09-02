@@ -1,0 +1,39 @@
+{
+  "name": "devagram-node-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@cosmicjs/sdk": "^1.0.9",
+    "@types/node": "20.5.1",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.15",
+    "cosmicjs": "^4.3.1",
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.4.19",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "md5": "^2.3.0",
+    "mongoose": "^7.4.4",
+    "multer": "^1.4.5-lts.1",
+    "next": "13.4.19",
+    "next-connect": "^0.13.0",
+    "postcss": "8.4.28",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/md5": "^2.3.2",
+    "@types/multer": "^1.4.7",
+    "bcrypt": "^5.1.1"
+  }
+}
