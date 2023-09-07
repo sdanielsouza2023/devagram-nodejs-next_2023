@@ -5,10 +5,10 @@ import { conectarMongoDB } from "@/middlewares/conectarMongoDB";
 import { UsuarioModel } from "@/models/UsuarioModel";
 import { PublicacaoModel } from "@/models/PublicacaoModel";
 
-const feedEndpoint = async (req: NextApiRequest, res:
-     NextApiResponse<RespostaPadraoMsg | any>) => {
+const feedEndpoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg | any > ) => {
     try {
         if (req.method === 'GET') {
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", req?.query?.id)
             if(req?.query?.id) {
                 const usuario = await UsuarioModel.findById(req?.query?.id)
                 if (!usuario) {

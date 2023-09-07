@@ -10,6 +10,7 @@ const PublicacaoSchema = new Schema({
     likes : {type : Array, required: true , default: []},
 
 })
+export const PublicacaoModel = mongoose.models.publicacaoes || mongoose.model('publicacaoes', PublicacaoSchema);
+/*export const PublicacaoModel = (mongoose.models.publicacoes || 
+    mongoose.model('publicacaoes' , PublicacaoSchema))*/
 
-export const PublicacaoModel = (mongoose.models.publicacoes || 
-    mongoose.model('publicacaoes' , PublicacaoSchema))

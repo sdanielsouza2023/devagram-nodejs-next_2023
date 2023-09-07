@@ -10,9 +10,9 @@ const UsuarioSchema = new Schema(
         publicacoes:  {type: Number, default:0},
     })
 
-export const UsuarioModel = (mongoose.models.usuarios || 
+export const UsuarioModel = mongoose.models.usuarios ||  mongoose.model("usuarios", UsuarioSchema)
     //models: Nesse contexto, models se refere ao objeto onde o Mongoose mantém um registro de todos os modelos que foram definidos. O trecho mongoose.models.usuarios verifica se um modelo chamado "usuarios" já existe
-    mongoose.model("usuarios", UsuarioSchema))
+   
    // model: Aqui, model (singular) é uma função fornecida pelo Mongoose para criar um novo modelo com base em um esquema definido.
 
 
