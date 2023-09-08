@@ -18,7 +18,6 @@ const handler = nc()
             if(!usuario){
                 return res.status(400).json({erro:'Usuario nao encontrado'})
             }
-
             if(!req || !req.body){
                 return res.status(400).json({erro: 'Parametros de entrada nao informados'})
             }
