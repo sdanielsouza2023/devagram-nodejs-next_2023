@@ -44,8 +44,6 @@ const endpointLogin = async (
     //console.log(MINHA_CHAVE_JWT, "BOOAAA")
     if (req.method === 'POST') {
         const { email, senha } = req.body
-
-
         const usuarioEncontrados = await UsuarioModel.find({ email: email })
         //const usuarioComMesmoEmail = await UsuarioModel.find({email : usuario.email})
         if (usuarioEncontrados && usuarioEncontrados.length > 0) {
@@ -67,9 +65,6 @@ const endpointLogin = async (
 
         }
     }
-
-
-
 }
 
 export default conectarMongoDB(endpointLogin)

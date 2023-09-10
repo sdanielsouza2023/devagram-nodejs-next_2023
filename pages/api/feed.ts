@@ -6,10 +6,11 @@ import { UsuarioModel } from "@/models/UsuarioModel";
 import { PublicacaoModel } from "@/models/PublicacaoModel";
 
 const feedEndpoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg | any > ) => {
-    try {
-        if (req.method === 'GET') {
-            if(req?.query?.userId) {
-                const usuario = await UsuarioModel.findById(req?.query?.userId)
+    try{
+        if (req.method === 'GET'){
+            if(req?.query?.id) {
+                console.log("Console chegou aqui",req?.query?.id)
+                const usuario = await UsuarioModel.findById(req?.query?.id)
                 if (!usuario) {
                     return res.status(400).json({ erro: "Usuario nao encontrado" })
                 }
@@ -20,10 +21,10 @@ const feedEndpoint = async (req: NextApiRequest, res: NextApiResponse<RespostaPa
             }
         }
         return res.status(405).json({ erro: "Metodo informado nao e valido" })
-    }catch (e) {
+    }catch(e){
         console.log(e)
     }
-    return res.status(400).json({ erro: "Nao fui possivel obter o feed" })
+   return res.status(400).json({ erro: "Nao fui possivel obter o feed" })
 }
 export default validarTokenJWT(conectarMongoDB(feedEndpoint))
 

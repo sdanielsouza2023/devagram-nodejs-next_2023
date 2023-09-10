@@ -12,7 +12,7 @@ const PublicacaoSchema = new Schema({
 })
 export const PublicacaoModel = mongoose.models.publicacaoes ||
  mongoose.model('publicacaoes', PublicacaoSchema);
- console.log(PublicacaoModel , PublicacaoSchema)
+
 /*export const PublicacaoModel = (mongoose.models.publicacoes || 
     mongoose.model('publicacaoes' , PublicacaoSchema))*/
 
