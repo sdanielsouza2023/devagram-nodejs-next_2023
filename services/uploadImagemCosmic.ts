@@ -1,19 +1,15 @@
 import { createBucketClient } from "@cosmicjs/sdk"
 import multer from "multer"
-
 const {
     BUCKET_SLUG,
     READ_KEY,
     WRITE_KEY,
-
 } = process.env
-
 const bucketDevagram = createBucketClient({
     bucketSlug: BUCKET_SLUG as string,
     readKey: READ_KEY as string,
     writeKey: WRITE_KEY as string,
 })
-
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage })
 const uploadImagemCosmic = async (req: any) => {
@@ -41,5 +37,4 @@ const uploadImagemCosmic = async (req: any) => {
         }
     }
 }
-
 export { upload, uploadImagemCosmic }

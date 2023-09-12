@@ -13,7 +13,6 @@ const handler = nc()
         try {
             //  nosso usuario esta no req.query
             const {userId} = req.query
-            console.log("Console passou por aqui " , userId)
             const usuario = await UsuarioModel.findById(userId)
 
             if(!usuario){

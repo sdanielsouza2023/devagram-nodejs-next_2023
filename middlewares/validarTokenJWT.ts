@@ -26,7 +26,7 @@ export const validarTokenJWT = (handler : NextApiHandler)=>
             if(!decoded){
                 return res.status(401).json({erro: "Nao foi possivel validadar o token de acesso"})
             }
-            if(req.query){
+            if(!req.query){
                 req.query = {}
             }
             req.query.userId = decoded._id
