@@ -3,7 +3,7 @@ import { validarTokenJWT } from '../../middlewares/validarTokenJWT'
 import { conectarMongoDB } from '@/middlewares/conectarMongoDB'
 import type { RespostaPadraoMsg } from '../../types/RespostaPadraoMsg'
 import { UsuarioModel } from '../../models/UsuarioModel'
-import {upload, uploadImagemCosmic} from '../../services/uploadImagemCosmic'
+import {upload, uploadImagemCosmic , deleteImageCosmic } from '../../services/uploadImagemCosmic'
 import nc from 'next-connect'
 const axios = require('axios');
 
@@ -23,12 +23,12 @@ const handler = nc()
            usuario.nome = nome
            // na propriedade nome mude o nome
         }
+        await deleteImageCosmic(usuario.avatar)
         const {file} = req
          if(file && file.originalname){
             const imagem = await uploadImagemCosmic(req)
             if(imagem && imagem.media &&  imagem.media.url){   
-                 axios.delete(imagem) 
-                 usuario.avatar = file
+                 usuario.avatar = imagem.media.url
             }
          }
          await UsuarioModel.findByIdAndUpdate({_id : usuario._id}, usuario)
