@@ -36,8 +36,6 @@ const uploadImagemCosmic = async (req: any) => {
             })
         }
     }
-
-
 }
 const deleteImageCosmic = async (url: string) => {
 
@@ -47,8 +45,7 @@ const deleteImageCosmic = async (url: string) => {
   
     // Buscando as imagens da pasta avatar e recebendo apenas os id e url de cada imagem.
     //Isso retorna uma JSON com uma propriedade media que contém um array com as informações das fotos em formato de JSON
-  
-  
+   
     let idPhoto = "" // Declara uma variável para guardar o id
   
     photos?.media?.map((photo : any) => { // .map percorre todo o array media e a cada elemento dentro desse array chamamos temporariamente de photo
@@ -58,11 +55,9 @@ const deleteImageCosmic = async (url: string) => {
         idPhoto = photo.id;
       }
     });
-  
     if(idPhoto !== ""){ // Caso a variável idPhoto seja diferente de aspas vazias significa que existe um ID dentro dessa variaável e então podemos usar o deleteOne passando esse ID
   
       await bucketDevagram.media.deleteOne(idPhoto);
     }
   }
-
 export { upload, deleteImageCosmic, uploadImagemCosmic }
