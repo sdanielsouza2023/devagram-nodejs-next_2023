@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { conectarMongoDB } from '../../middlewares/conectarMongoDB'
 import type { RespostaPadraoMsg } from '../../types/RespostaPadraoMsg'
 import bcrypt from 'bcrypt'
-
 import jwt from 'jsonwebtoken'
 import { LoginResposta } from '@/types/loginResposta'
 import { UsuarioModel } from '../../models/UsuarioModel'
