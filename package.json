@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@cosmicjs/sdk": "^1.0.9",
-    "@types/nodemon": "^1.19.2",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
@@ -35,9 +34,6 @@
     "@types/multer": "^1.4.7",
     "@types/node": "^20.6.1",
     "bcrypt": "^5.1.1",
-    "nodemon": "^3.0.1",
-    "rimraf": "^5.0.1",
-    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
 }
