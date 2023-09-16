@@ -1,6 +1,6 @@
 {
   "watch": ["pages/api"],
   "ext": "ts,tsx",
-  "ignore": ["pages/api/**/*.{ts,tsx}"],
-  "exec": "ts-node pages/api/*.{ts,tsx}"
+  "ignore": ["node_modules"],
+  "exec": "ts-node pages/api/**/*.ts"
 }
