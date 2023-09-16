@@ -1,20 +1,23 @@
-// .vscode/tasks.json
 {
-  "version": "2.0.0",
-  "tasks": [
+  "version": "0.2.0",
+  "configurations": [
     {
-      "name": "Launch with Nodemon",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "dev"],
-      "group": {
-        "kind": "build",
-        "isDefault": true
+      "name": "Debug Next.js with Nodemon",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/nodemon/bin/nodemon.js",
+      "args": ["--exec", "ts-node", "pages/api/**/*.ts"],
+      "runtimeExecutable": null,
+      "env": {
+        "NODE_ENV": "development"
       },
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
-      }
+      "sourceMaps": true,
+      "cwd": "${workspaceFolder}",
+      "protocol": "inspector",  // Esta linha deve estar corretamente aninhada dentro do objeto de configuração.
+      "restart": true,
+      "stopOnEntry": false,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
