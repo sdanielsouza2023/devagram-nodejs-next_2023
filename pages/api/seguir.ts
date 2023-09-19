@@ -51,7 +51,7 @@ const endpointSeguir =
             }else{
                 const seguidor = {
                     usuarioId : usuarioLogado._id, // passando o id do usuario logado
-                    usuarioASerSeguido :  usuarioASerSeguido._id // passando o idadedo usuario que quero seguir
+                    usuarioSeguidoId :  usuarioASerSeguido._id // passando o idadedo usuario que quero seguir
                 }
                 await SeguidorModel.create(seguidor)
 
