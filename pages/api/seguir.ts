@@ -5,26 +5,29 @@ import { conectarMongoDB } from '@/middlewares/conectarMongoDB'
 import { UsuarioModel } from '@/models/UsuarioModel'
 import {SeguidorModel} from '@/models/SeguirdorModel'
 
-
+console.log( "00000000000000000000000000000000000000"+ SeguidorModel)
 
 const endpointSeguir =
     async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>)=>{
     try{
         if(req.method === 'PUT'){
-            
+            // como ele sabe q user e  de quem esta logadno e id e q quem quero seguir
+            // req salva meus dados 
             const {userId, id} = req?.query
+            console.log("ID de quem esta logado: " + userId)
+            console.log("ID de quem vai ser seguido: " + id)
             console.log("Console.log chegou ate aqui " + id)
             const usuarioLogado = await UsuarioModel.findById(userId)  
             console.log("Console.log chegou ate aqui " + id)
             console.log("console.log chegou ate aqui usuario logado "  +  userId)
             if(!usuarioLogado){
-                return res.status(400).json({erro:"Usuario logado nao encontrado"})
+                return res.status(400).json({erro:"Usuário Logado não encontrado" })
             }
             console.log("Console.log chegou ate aqui, usuario logado " + usuarioLogado)
             const usuarioASerSeguido = await UsuarioModel.findById(id)
             console.log("console.log chegou ate aqui usuario a ser seguido " + usuarioASerSeguido)
             if(!usuarioASerSeguido){
-                return res.status(400).json({erro: "Usuario a ser seguindo nao encontrado"})
+                return res.status(400).json({erro: "Usuário a ser seguido não encontrado"})
             }
 
             console.log("---------------------------------------------------------------- BUG MISERÁVEL")
@@ -37,18 +40,18 @@ const endpointSeguir =
             console.log("o BUG ESTA AQUI ENCONTREI O DANADO")
             console.log(euJaSigoEsseUsuario)
             console.log("euJaSigoEsseUsuario" + euJaSigoEsseUsuario)
-            
+            console.log("por esta retornando vazio !!!!" + euJaSigoEsseUsuario && euJaSigoEsseUsuario.length > 0)
             if(euJaSigoEsseUsuario && euJaSigoEsseUsuario.length > 0){
-                euJaSigoEsseUsuario.forEach(async(e : any) => await SeguidorModel.findByIdAndDelete({_id: e._id}))
+                euJaSigoEsseUsuario.forEach(async(e: any) => await SeguidorModel.findByIdAndDelete({_id: e._id}))
                 usuarioLogado.seguindo--
-                await UsuarioModel.findByIdAndUpdate({_id :  usuarioLogado._id}, usuarioLogado)
+                await UsuarioModel.findByIdAndUpdate({_id :usuarioLogado._id}, usuarioLogado)
                 usuarioASerSeguido.seguidores--
                 await UsuarioModel.findByIdAndUpdate({_id : usuarioASerSeguido._id},usuarioASerSeguido )
                 return res.status(200).json({msg : "Deixou de seguir o usuario com sucesso"})
             }else{
                 const seguidor = {
-                    usuarioId : usuarioLogado._id,
-                    usuarioASerSeguido :  usuarioASerSeguido._id
+                    usuarioId : usuarioLogado._id, // passando o id do usuario logado
+                    usuarioASerSeguido :  usuarioASerSeguido._id // passando o idadedo usuario que quero seguir
                 }
                 await SeguidorModel.create(seguidor)
 
@@ -66,7 +69,7 @@ const endpointSeguir =
         return res.status(405).json({erro: 'Metodo informado nao existe'})
     }catch(e){
         console.log(e)
-        return res.status(500).json({erro: 'Nao foi seguir/possivel o usuario informado'})
+        return res.status(500).json({ erro: "Não foi possível seguir/desseguir o usuário informado" });
     }
 }
 export default validarTokenJWT(conectarMongoDB(endpointSeguir)) 
