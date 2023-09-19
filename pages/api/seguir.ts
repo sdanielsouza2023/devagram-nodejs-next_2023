@@ -37,6 +37,7 @@ const endpointSeguir =
             // acredito eu q seja isso!!!
             const euJaSigoEsseUsuario = await SeguidorModel
                 .find({usuarioId: usuarioLogado._id , usuarioSeguidoId : usuarioASerSeguido._id})
+                console.log({usuarioId: usuarioLogado._id , usuarioSeguidoId : usuarioASerSeguido._id})
             console.log("o BUG ESTA AQUI ENCONTREI O DANADO")
             console.log(euJaSigoEsseUsuario)
             console.log("euJaSigoEsseUsuario" + euJaSigoEsseUsuario)
