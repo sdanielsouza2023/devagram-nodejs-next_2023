@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { LoginResposta } from '@/types/loginResposta'
 import { UsuarioModel } from '../../models/UsuarioModel'
+import { politicaCORS } from '@/middlewares/politicaCORS'
 
 const endpointLogin = async (
     req: NextApiRequest,
@@ -40,7 +41,7 @@ const endpointLogin = async (
     }
 }
 
-export default conectarMongoDB(endpointLogin)
+export default politicaCORS( conectarMongoDB(endpointLogin))
 
 
 

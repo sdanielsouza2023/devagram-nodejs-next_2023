@@ -4,6 +4,7 @@ import { validarTokenJWT } from '@/middlewares/validarTokenJWT'
 import { conectarMongoDB } from '@/middlewares/conectarMongoDB'
 import { UsuarioModel } from '@/models/UsuarioModel'
 import {SeguidorModel} from '@/models/SeguirdorModel'
+import { politicaCORS } from '@/middlewares/politicaCORS'
 
 console.log( "00000000000000000000000000000000000000"+ SeguidorModel)
 
@@ -73,6 +74,6 @@ const endpointSeguir =
         return res.status(500).json({ erro: "Não foi possível seguir/desseguir o usuário informado" });
     }
 }
-export default validarTokenJWT(conectarMongoDB(endpointSeguir)) 
+export default politicaCORS(validarTokenJWT(conectarMongoDB(endpointSeguir)) ) 
 
 // por que precisa validar o token????

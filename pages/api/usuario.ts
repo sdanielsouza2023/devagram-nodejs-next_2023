@@ -5,6 +5,7 @@ import type { RespostaPadraoMsg } from '../../types/RespostaPadraoMsg'
 import { UsuarioModel } from '../../models/UsuarioModel'
 import {upload, uploadImagemCosmic , deleteImageCosmic } from '../../services/uploadImagemCosmic'
 import nc from 'next-connect'
+import { politicaCORS } from '@/middlewares/politicaCORS'
 const axios = require('axios');
 
 const handler = nc()
@@ -55,4 +56,4 @@ export const config = {
         bodyParser: false
     }
 }
-export default validarTokenJWT(conectarMongoDB(handler))
+export default politicaCORS(validarTokenJWT(conectarMongoDB(handler))) 
