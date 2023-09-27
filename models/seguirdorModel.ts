@@ -8,4 +8,4 @@ const SeguidorSchema = new Schema({
     })
 
 
-export const SeguidorModel = mongoose.models.seguidores || mongoose.model("seguidores", SeguidorSchema)
+export const SeguidorModel = (mongoose.models.seguidores || mongoose.model("seguidores", SeguidorSchema))

@@ -48,7 +48,7 @@ const handler = nc()
             return res.status(200).json({msg: "Usuário cadastrado com sucesso"})
         } catch (error) {
             console.log(error)
-            return res.status(500).json({msg: "Usuário cadastrado com sucesso"})
+            return res.status(500).json({msg: "Erro desconhecido"})
         }
     }
 )
