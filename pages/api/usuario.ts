@@ -36,7 +36,7 @@ const handler = nc()
 
          res.status(200).json({msg: "Dados atulalizados com sucesso"})
     }catch(e){
-        return res.status(200).json({erro:"Erro ao atualizar os dados"})
+        return res.status(500).json({erro:"Erro ao atualizar os dados"})
     }
 })
 .get(async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg | any>) => {
