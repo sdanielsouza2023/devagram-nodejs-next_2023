@@ -60,4 +60,4 @@ const deleteImageCosmic = async (url: string) => {
       await bucketDevagram.media.deleteOne(idPhoto);
     }
   }
-export { upload, deleteImageCosmic, uploadImagemCosmic }
+export { upload, deleteImageCosmic,uploadImagemCosmic}

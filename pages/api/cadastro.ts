@@ -43,7 +43,9 @@ const handler = nc()
                 email: usuario.email,
                 senha: keysenha,
                 avatar: imagem?.media?.url
+                
             }
+            console.log(usuarioAserSalvo.avatar)
             await UsuarioModel.create(usuarioAserSalvo)
             return res.status(200).json({msg: "Usuário cadastrado com sucesso"})
         } catch (error) {
@@ -57,7 +59,7 @@ export const config = {
         bodyParser: false,
     }
 }
-export default politicaCORS( conectarMongoDB(handler))
+export default politicaCORS(conectarMongoDB(handler))
 
 
 
