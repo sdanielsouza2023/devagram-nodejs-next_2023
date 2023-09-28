@@ -18,8 +18,6 @@ export const conectarMongoDB = (handler : NextApiHandler) =>
 
             // Não esta conectado vamos conectar 0: disconnected - A conexão não está estabelecida.
         }
-
-        
         // Obter a variavel de ambiente preenchida do Env
 
         const{DB_CONEXAO_STRING} = process.env // aqui está pegando a strings

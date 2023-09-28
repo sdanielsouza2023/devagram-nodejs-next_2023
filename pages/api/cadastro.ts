@@ -9,7 +9,7 @@ import nc from "next-connect"
 import { politicaCORS } from "@/middlewares/politicaCORS"
 
 const handler = nc()
-.use(upload.single("file"))
+.use(upload.single("file"))   
 .post(
     async (req:NextApiRequest, res:NextApiResponse<RespostaPadraoMsg>) =>{
         try {
